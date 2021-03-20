@@ -10,8 +10,10 @@ const usersRouter = require('./routes/users');
 
 const app = express();
 
-//Routing
+//Middlewares
 app.use(bodyParser.json());
+
+//Routing
 app.use('/posts', postsRouter);
 app.use('/user', usersRouter);
 
@@ -19,6 +21,6 @@ app.use('/user', usersRouter);
 app.listen(8080);
 
 //DB
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true },  () =>
+mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true, useUnifiedTopology: true}, () =>
     console.log('Connected to DB')
 )
